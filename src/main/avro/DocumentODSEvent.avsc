@@ -1,0 +1,64 @@
+{
+  "namespace":"com.sda.avro.schema.dods",
+  "type":"record",
+  "name":"DocumentODSEvent",
+  "fields": [
+    {
+      "name":"type",
+      "type": "DocumentODSEventType"
+    },
+    {
+      "name": "payload",
+      "type": [
+        {
+          "type":"record",
+          "name":"DocumentODSCreate",
+          "fields": [
+            { "name":"uuid", "type":"string",
+              "doc":"A unique document id generated in the VU backend to clearly identify and reference a document later." },
+            { "name":"externalId", "type":"SoRKey",
+              "doc":"A unique document id generated in the VU backend to clearly identify and reference a document later. Also used to reference the document in the object store" },
+            { "name":"title", "type":"string",
+              "doc":"The title of the document (visible in any UI)" },
+            { "name":"category", "type":"string",
+              "doc":"The kind of the insurance the document belongs to, eg. Haftpflichtversicherung, Krankenzusatz" },
+            { "name":"type", "type": ["null", "string"], "default": null,
+              "doc":"The type of the document eg. Rechnung, Police, Schadenmeldung" },
+            { "name":"date", "type": ["null", "long"], "default": null,
+              "doc":"The date of the document which is printed on the document"},
+            { "name":"dateIn", "type": ["null", "long"], "default": null,
+              "doc":"The date of an incoming document when it was received at the VU"},
+            { "name":"bundleId", "type": ["null", "string"], "default": null,
+              "doc":"The unique id of a document bundle where this document belongs to"},
+            { "name":"originalSender", "type": ["null", "string"], "default": null,
+              "doc":"The sender corresponding to the document, eg. firstname + lastname, name of VU"},
+            { "name":"originalReceiver", "type": ["null", "string"], "default": null,
+              "doc":"The receiver corresponding to the document, eg. firstname + lastname, name of VU"},
+            { "name":"classificationType", "type":"string",
+              "doc":"..."},
+            { "name":"classificationIds", "type": {"type":"array", "items":"string"},
+              "doc":"A list of one or more unique classification Ids this document belongs to"},
+            { "name":"protectionClass", "type": ["null", "int"], "default": null,
+              "doc":"A list of one or more unique classification Ids this document belongs to"},
+            { "name":"inOutBound", "type":"int",
+              "doc":"Flag to identify where the document is visible, 0: undefined, 1: input folder, 2: output folder"},
+            { "name":"relevantPartnerId", "type":"string",
+              "doc":"Unique ..."},
+            { "name":"businessTransactionId", "type":"string",
+              "doc":"Unique ..."}
+          ]
+        },
+        {
+          "type":"record",
+          "name":"DocumentODSDelete",
+          "fields": [
+            { "name":"uuid", "type":"string",
+              "doc":"A unique document id generated in the VU backend to clearly identify and reference a document later. Also used to reference the document in the object store" },
+            { "name":"externalId", "type":"SoRKey",
+              "doc":"A unique document id generated in the VU backend to clearly identify and reference a document later. Also used to reference the document in the object store" }
+          ]
+        }
+      ]
+    }
+  ]
+}

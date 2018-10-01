@@ -1,0 +1,2 @@
+rootProject.name = 'test-kafka-avro'
+includeBuild '../kafka-common'
