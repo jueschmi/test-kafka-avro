@@ -1,6 +1,7 @@
 package com.sda.workbench.kafka.consumer;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sda.avro.schema.dods.DocumentODSEvent;
 import com.sda.workbench.kafka.consumer.document.rest.TestKafkaConsumerEndpoint;
 import com.sda.workbench.kafka.consumer.events.DocumentEventRepository;
@@ -55,6 +56,7 @@ public class TestKafkaConsumerApplication extends Application<AppConfiguration> 
       environment.jersey().register(TestKafkaConsumerEndpoint.class);
       environment.jersey().enable(ServerProperties.LOCATION_HEADER_RELATIVE_URI_RESOLUTION_DISABLED);
       environment.getObjectMapper().setSerializationInclusion(Include.NON_NULL);
+      environment.getObjectMapper().registerModule(new JavaTimeModule());
 
       BeanConfig config = new BeanConfig();
       config.setScan(true);

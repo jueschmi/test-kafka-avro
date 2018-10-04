@@ -22,11 +22,12 @@
               "doc":"The title of the document (visible in any UI)" },
             { "name":"category", "type":"string",
               "doc":"The kind of the insurance the document belongs to, eg. Haftpflichtversicherung, Krankenzusatz" },
+
             { "name":"type", "type": ["null", "string"], "default": null,
               "doc":"The type of the document eg. Rechnung, Police, Schadenmeldung" },
-            { "name":"date", "type": ["null", "long"], "default": null,
+            { "name":"date", "type": ["null", "string"], "default": null,
               "doc":"The date of the document which is printed on the document"},
-            { "name":"dateIn", "type": ["null", "long"], "default": null,
+            { "name":"dateIn", "type": ["null", "string"], "default": null,
               "doc":"The date of an incoming document when it was received at the VU"},
             { "name":"bundleId", "type": ["null", "string"], "default": null,
               "doc":"The unique id of a document bundle where this document belongs to"},
@@ -34,6 +35,7 @@
               "doc":"The sender corresponding to the document, eg. firstname + lastname, name of VU"},
             { "name":"originalReceiver", "type": ["null", "string"], "default": null,
               "doc":"The receiver corresponding to the document, eg. firstname + lastname, name of VU"},
+
             { "name":"classificationType", "type":"string",
               "doc":"..."},
             { "name":"classificationIds", "type": {"type":"array", "items":"string"},
@@ -42,9 +44,10 @@
               "doc":"A list of one or more unique classification Ids this document belongs to"},
             { "name":"inOutBound", "type":"int",
               "doc":"Flag to identify where the document is visible, 0: undefined, 1: input folder, 2: output folder"},
-            { "name":"relevantPartnerId", "type":"string",
+            { "name":"relevantPartners", "type": {"type":"array", "items":"RelevantPartner"},
+//              "aliases" : [ "relevantPartnerId" ],
               "doc":"Unique ..."},
-            { "name":"businessTransactionId", "type":"string",
+            { "name":"businessTransactionId", "type": ["null", "string"], "default": null,
               "doc":"Unique ..."}
           ]
         },

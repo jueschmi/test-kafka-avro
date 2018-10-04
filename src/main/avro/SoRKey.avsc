@@ -4,8 +4,8 @@
   "name":"SoRKey",
   "fields": [
     {
-      "name":"DOCID",
-      "type":"string"
+      "name":"sorKeyElements",
+      "type": {"type":"map", "values":"string"}
     }
   ]
 }

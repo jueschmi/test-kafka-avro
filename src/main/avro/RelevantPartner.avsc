@@ -1,0 +1,15 @@
+{
+  "namespace":"com.sda.avro.schema.dods",
+  "type":"record",
+  "name":"RelevantPartner",
+  "fields": [
+    {
+      "name":"partnerId",
+      "type":"SoRKey"
+    },
+    {
+      "name":"partnerRole",
+      "type":"string"
+    }
+  ]
+}

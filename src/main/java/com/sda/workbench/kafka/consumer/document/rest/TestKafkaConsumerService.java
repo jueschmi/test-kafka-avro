@@ -19,7 +19,7 @@ public interface TestKafkaConsumerService extends TestKafkaConsumerFacade {
    @GET
    @Path("/checkmessages")
    @Produces(MediaType.APPLICATION_JSON)
-   List<String> checkKafkaMessages();
+   List<DocumentRest> checkKafkaMessages();
 
 
    @POST
