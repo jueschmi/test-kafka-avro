@@ -1,14 +1,14 @@
 package com.sda.workbench.kafka.consumer.events;
 
-import com.sda.avro.schema.dods.DocumentODSEvent;
-
 import java.util.List;
+
+import com.sdase.avro.schema.dods.DocumentODSEvent;
 
 public interface DocumentEventRepository {
 
-    List<DocumentODSEvent> findAll();
+	List<DocumentODSEvent> findAll();
 
-    DocumentODSEvent save(DocumentODSEvent event);
+	DocumentODSEvent save(DocumentODSEvent event);
 
-    void deleteAll();
+	void deleteAll();
 }

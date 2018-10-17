@@ -7,6 +7,6 @@ import javax.ws.rs.core.UriInfo;
 @FunctionalInterface
 public interface ResourceIdentifiable {
 
-   URI link(UriInfo uriInfo);
+	URI link(UriInfo uriInfo);
 
 }

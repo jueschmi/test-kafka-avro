@@ -1,0 +1,10 @@
+{
+  "namespace": "com.sdase.avro.schema.dods",
+  "name": "InOutBoundType",
+  "type": "enum",
+  "symbols": [
+    "UNDEFINED",
+    "INBOUND",
+    "OUTBOUND"
+  ]
+}

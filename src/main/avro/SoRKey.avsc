@@ -1,11 +1,14 @@
 {
-  "namespace":"com.sda.avro.schema.dods",
-  "type":"record",
-  "name":"SoRKey",
+  "namespace": "com.sdase.avro.schema.dods",
+  "type": "record",
+  "name": "SoRKey",
   "fields": [
     {
-      "name":"sorKeyElements",
-      "type": {"type":"map", "values":"string"}
+      "name": "sorKeyElements",
+      "type": {
+        "type": "map",
+        "values": "string"
+      }
     }
   ]
 }

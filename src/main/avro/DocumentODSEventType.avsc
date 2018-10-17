@@ -1,6 +1,10 @@
 {
-  "namespace":"com.sda.avro.schema.dods",
-  "name":"DocumentODSEventType",
-  "type":"enum",
-  "symbols" : ["document_create", "document_update", "document_delete"]
+  "namespace": "com.sdase.avro.schema.dods",
+  "name": "DocumentODSEventType",
+  "type": "enum",
+  "symbols": [
+    "DOCUMENT_CREATE",
+    "DOCUMENT_UPDATE",
+    "DOCUMENT_DELETE"
+  ]
 }

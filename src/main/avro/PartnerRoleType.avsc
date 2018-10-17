@@ -1,0 +1,13 @@
+{
+  "namespace": "com.sdase.avro.schema.dods",
+  "name": "PartnerRoleType",
+  "type": "enum",
+  "symbols": [
+    "ADVISOR",
+    "CUSTOMER",
+    "CONTRIBUTOR",
+    "INSUREDPERSON",
+    "BENEFFICIARY",
+    "VEHICLEOWNER"
+  ]
+}
