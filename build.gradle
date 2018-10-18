@@ -72,7 +72,7 @@ schemaRegistry {
 //    url = 'http://schema-registry.sandbox.eu-de.containers.appdomain.cloud'
     register {
 //        subject('test-event-topic-value', 'src/main/avro/DocumentODSEvent.avsc',
-        subject('com.sdase.avro.schema.dods.DocumentODSEvent', 'src/main/avro/DocumentODSEvent.avsc',
+        subject('com.sdase.avro.schema.document.DocumentODSEvent', 'src/main/avro/DocumentODSEvent.avsc',
                 ['src/main/avro/DocumentODSEventType.avsc', 'src/main/avro/RelevantPartner.avsc', 'src/main/avro/PartnerRoleType.avsc', 'src/main/avro/InOutBoundType.avsc', 'src/main/avro/SoRKey.avsc'])
     }
 }
