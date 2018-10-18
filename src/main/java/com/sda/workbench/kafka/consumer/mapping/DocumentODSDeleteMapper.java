@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRestDelete;
 import com.sda.workbench.kafka.consumer.document.rest.model.SoRKey;
 import com.sda.workbench.kafka.consumer.document.rest.model.SorKeyElement;
-import com.sdase.avro.schema.dods.DocumentODSDelete;
+import com.sdase.avro.schema.document.DocumentODSDelete;
 
 import ma.glasnost.orika.CustomMapper;
 import ma.glasnost.orika.MappingContext;

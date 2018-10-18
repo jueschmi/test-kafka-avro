@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.sda.workbench.kafka.consumer.events.DocumentEventRepository;
 import com.sda.workbench.kafka.consumer.mapping.DocumentODSMapper;
-import com.sdase.avro.schema.dods.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEvent;
 import com.sdase.framework.kafka.bundle.consumer.MessageHandler;
 
 public class DocumentMessageHandler implements MessageHandler<String, DocumentODSEvent> {

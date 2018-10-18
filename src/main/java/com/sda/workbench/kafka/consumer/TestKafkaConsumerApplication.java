@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sda.workbench.kafka.consumer.document.rest.TestKafkaConsumerEndpoint;
 import com.sda.workbench.kafka.consumer.streaming.DocumentMessageHandler;
-import com.sdase.avro.schema.dods.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEvent;
 import com.sdase.framework.dropwizard.weld.WeldBundle;
 import com.sdase.framework.kafka.bundle.KafkaBundle;
 import com.sdase.framework.kafka.bundle.producer.MessageProducer;

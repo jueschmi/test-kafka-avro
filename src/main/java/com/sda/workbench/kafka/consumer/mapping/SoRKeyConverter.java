@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.sda.workbench.kafka.consumer.document.rest.model.SorKeyElement;
-import com.sdase.avro.schema.dods.SoRKey;
+import com.sdase.avro.schema.document.SoRKey;
 
 import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.converter.BidirectionalConverter;
@@ -21,7 +21,8 @@ public class SoRKeyConverter
 			Map<String, String> sorKeyElements = source.getSorKeyElements().stream()
 					.collect(Collectors.toMap(SorKeyElement::getKey, value -> value.getValue()));
 
-			return SoRKey.newBuilder().setSorKeyElements(sorKeyElements).build();
+			return SoRKey.newBuilder().setSorKeyElements(sorKeyElements).setSorResourceKeys(source.getSorResourceKeys())
+					.setOtherIdentifiers(source.getOtherIdentifiers()).build();
 		}
 
 		return null;
@@ -35,7 +36,12 @@ public class SoRKeyConverter
 			List<SorKeyElement> sorKeyElements = source.getSorKeyElements().entrySet().stream()
 					.map(m -> new SorKeyElement(m.getKey(), m.getValue())).collect(Collectors.toList());
 
-			return new com.sda.workbench.kafka.consumer.document.rest.model.SoRKey(sorKeyElements);
+			com.sda.workbench.kafka.consumer.document.rest.model.SoRKey dest =
+				new com.sda.workbench.kafka.consumer.document.rest.model.SoRKey(sorKeyElements);
+			dest.setSorResourceKeys(source.getSorResourceKeys());
+			dest.setOtherIdentifiers(source.getOtherIdentifiers());
+
+			return dest;
 		}
 
 		return null;

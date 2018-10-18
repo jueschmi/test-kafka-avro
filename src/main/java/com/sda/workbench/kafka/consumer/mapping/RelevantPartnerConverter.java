@@ -1,6 +1,6 @@
 package com.sda.workbench.kafka.consumer.mapping;
 
-import com.sdase.avro.schema.dods.RelevantPartner;
+import com.sdase.avro.schema.document.RelevantPartner;
 
 import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.converter.BidirectionalConverter;

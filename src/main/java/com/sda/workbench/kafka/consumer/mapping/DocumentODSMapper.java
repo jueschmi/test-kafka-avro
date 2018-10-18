@@ -8,10 +8,10 @@ import javax.enterprise.context.ApplicationScoped;
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRest;
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRestCreate;
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRestDelete;
-import com.sdase.avro.schema.dods.DocumentODSCreate;
-import com.sdase.avro.schema.dods.DocumentODSDelete;
-import com.sdase.avro.schema.dods.DocumentODSEvent;
-import com.sdase.avro.schema.dods.DocumentODSEventType;
+import com.sdase.avro.schema.document.DocumentODSCreate;
+import com.sdase.avro.schema.document.DocumentODSDelete;
+import com.sdase.avro.schema.document.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEventType;
 import com.sdase.framework.mapping.filter.FieldQueryFilter;
 
 import ma.glasnost.orika.MapperFacade;

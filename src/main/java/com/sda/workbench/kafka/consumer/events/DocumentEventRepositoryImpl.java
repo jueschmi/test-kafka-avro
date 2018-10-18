@@ -6,7 +6,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.sdase.avro.schema.dods.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEvent;
 
 @ApplicationScoped
 public class DocumentEventRepositoryImpl implements DocumentEventRepository {

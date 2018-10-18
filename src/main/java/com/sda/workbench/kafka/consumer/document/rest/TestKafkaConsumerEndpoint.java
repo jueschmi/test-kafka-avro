@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +20,14 @@ import org.slf4j.LoggerFactory;
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRest;
 import com.sda.workbench.kafka.consumer.events.DocumentEventRepository;
 import com.sda.workbench.kafka.consumer.mapping.DocumentODSMapper;
-import com.sdase.avro.schema.dods.DocumentODSCreate;
-import com.sdase.avro.schema.dods.DocumentODSDelete;
-import com.sdase.avro.schema.dods.DocumentODSEvent;
-import com.sdase.avro.schema.dods.DocumentODSEventType;
-import com.sdase.avro.schema.dods.InOutBoundType;
-import com.sdase.avro.schema.dods.PartnerRoleType;
-import com.sdase.avro.schema.dods.RelevantPartner;
-import com.sdase.avro.schema.dods.SoRKey;
+import com.sdase.avro.schema.document.DocumentODSCreate;
+import com.sdase.avro.schema.document.DocumentODSDelete;
+import com.sdase.avro.schema.document.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEventType;
+import com.sdase.avro.schema.document.InOutBoundType;
+import com.sdase.avro.schema.document.PartnerRoleType;
+import com.sdase.avro.schema.document.RelevantPartner;
+import com.sdase.avro.schema.document.SoRKey;
 import com.sdase.framework.kafka.bundle.producer.MessageProducer;
 
 public class TestKafkaConsumerEndpoint implements TestKafkaConsumerService {
@@ -70,7 +71,9 @@ public class TestKafkaConsumerEndpoint implements TestKafkaConsumerService {
 		if (producer != null) {
 			final String uuid = UUID.randomUUID().toString();
 			final Map<String, String> sorKeyElements = Collections.singletonMap("DOCID", uuid);
-			final SoRKey sorKey = SoRKey.newBuilder().setSorKeyElements(sorKeyElements).build();
+			final List<String> sorResourceKeys = Arrays.asList(UUID.randomUUID().toString());
+
+			final SoRKey sorKey = SoRKey.newBuilder().setSorKeyElements(sorKeyElements).setSorResourceKeys(sorResourceKeys).build();
 
 			DocumentODSEvent event = null;
 			switch (messagetype) {
@@ -95,8 +98,6 @@ public class TestKafkaConsumerEndpoint implements TestKafkaConsumerService {
 									.setClassificationIds(classificationIds).setInOutBound(InOutBoundType.INBOUND)
 									.setRelevantPartners(relevantPartners).setBusinessTransactionId("123").build())
 							.build();
-
-					String test = event.toString();
 
 					break;
 				case "delete" :

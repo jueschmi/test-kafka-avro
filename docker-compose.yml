@@ -12,6 +12,7 @@ services:
     restart: always
     environment:
       - KAFKA_CONSUMER_TEST_EVENT_TOPIC=test-event-topic
+#      - KAFKA_CONSUMER_TEST_EVENT_TOPIC=document-ods-event-topic
       - KAFKA_PRODUCER_TEST_ERROR_TOPIC=test-error-topic
       - KAFKA_SECURITY_PROTOCOL=SASL_SSL
 #      - SECRET_KAFKA_USERNAME='wMNvfG4AgllefaD8'

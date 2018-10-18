@@ -2,7 +2,7 @@ package com.sda.workbench.kafka.consumer.events;
 
 import java.util.List;
 
-import com.sdase.avro.schema.dods.DocumentODSEvent;
+import com.sdase.avro.schema.document.DocumentODSEvent;
 
 public interface DocumentEventRepository {
 

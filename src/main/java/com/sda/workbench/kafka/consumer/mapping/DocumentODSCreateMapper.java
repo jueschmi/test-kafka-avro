@@ -6,10 +6,8 @@ import java.util.stream.Collectors;
 
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRestCreate;
 import com.sda.workbench.kafka.consumer.document.rest.model.InOutBoundType;
-import com.sda.workbench.kafka.consumer.document.rest.model.SoRKey;
-import com.sda.workbench.kafka.consumer.document.rest.model.SorKeyElement;
-import com.sdase.avro.schema.dods.DocumentODSCreate;
-import com.sdase.avro.schema.dods.RelevantPartner;
+import com.sdase.avro.schema.document.DocumentODSCreate;
+import com.sdase.avro.schema.document.RelevantPartner;
 
 import ma.glasnost.orika.CustomMapper;
 import ma.glasnost.orika.MappingContext;
@@ -25,17 +23,14 @@ public class DocumentODSCreateMapper extends CustomMapper<DocumentODSCreate, Doc
 		b.setCategory(a.getCategory());
 		b.setDate((a.getDate() != null) ? ZonedDateTime.parse(a.getDate()) : null);
 		b.setDateIn((a.getDateIn() != null) ? ZonedDateTime.parse(a.getDateIn()) : null);
-		b.setInOutBound(InOutBoundType.INBOUND);
 		b.setOriginalSender(a.getOriginalSender());
 		b.setOriginalReceiver(a.getOriginalReceiver());
+		b.setInOutBound(InOutBoundType.INBOUND);
 		b.setClassificationType(a.getClassificationType());
 		b.setClassificationIds(a.getClassificationIds());
 		b.setProtectionClass(a.getProtectionClass() != null ? a.getProtectionClass().intValue() : 1);
 
-		List<SorKeyElement> sorKeyElements = a.getExternalId().getSorKeyElements().entrySet().stream()
-				.map(m -> new SorKeyElement(m.getKey(), m.getValue())).collect(Collectors.toList());
-
-		b.setExternalId(new SoRKey(sorKeyElements));
+		b.setExternalId(mapperFacade.map(a.getExternalId(), com.sda.workbench.kafka.consumer.document.rest.model.SoRKey.class));
 
 		List<com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner> relevantPartners = a
 				.getRelevantPartners().stream().map(p -> convertDODSRelevantPartner(p)).collect(Collectors.toList());
@@ -45,10 +40,7 @@ public class DocumentODSCreateMapper extends CustomMapper<DocumentODSCreate, Doc
 
 	private com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner convertDODSRelevantPartner(
 			RelevantPartner relevantPartner) {
-		com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner retPartner = new com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner();
-		retPartner.setPartnerRole(relevantPartner.getPartnerRole().toString());
-		retPartner.setPartnerId(relevantPartner.getPartnerId());
 
-		return retPartner;
+		return mapperFacade.map(relevantPartner, com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner.class);
 	}
 }
