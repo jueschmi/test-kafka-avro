@@ -5,7 +5,7 @@
  */
 {
   "namespace": "com.sdase.avro.schema.document",
-  "name": "InOutBoundType",
+  "name": "InOutboundType",
   "type": "enum",
   "symbols": [
     "UNDEFINED",

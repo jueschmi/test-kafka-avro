@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.sda.workbench.kafka.consumer.document.rest.model.DocumentRestCreate;
-import com.sda.workbench.kafka.consumer.document.rest.model.InOutBoundType;
+import com.sda.workbench.kafka.consumer.document.rest.model.InOutboundType;
 import com.sdase.avro.schema.document.DocumentODSCreate;
 import com.sdase.avro.schema.document.RelevantPartner;
 
@@ -25,7 +25,7 @@ public class DocumentODSCreateMapper extends CustomMapper<DocumentODSCreate, Doc
 		b.setDateIn((a.getDateIn() != null) ? ZonedDateTime.parse(a.getDateIn()) : null);
 		b.setOriginalSender(a.getOriginalSender());
 		b.setOriginalReceiver(a.getOriginalReceiver());
-		b.setInOutBound(InOutBoundType.INBOUND);
+		b.setInOutBound(InOutboundType.INBOUND);
 		b.setClassificationType(a.getClassificationType());
 		b.setClassificationIds(a.getClassificationIds());
 		b.setProtectionClass(a.getProtectionClass() != null ? a.getProtectionClass().intValue() : 1);

@@ -11,10 +11,10 @@ services:
       - "8791:8787"
     restart: always
     environment:
-      - KAFKA_CONSUMER_TEST_EVENT_TOPIC=test-event-topic
-#      - KAFKA_CONSUMER_TEST_EVENT_TOPIC=document-ods-event-topic
+#      - KAFKA_CONSUMER_TEST_EVENT_TOPIC=test-event-topic
+      - KAFKA_CONSUMER_TEST_EVENT_TOPIC=document-ods-event-topic
       - KAFKA_PRODUCER_TEST_ERROR_TOPIC=test-error-topic
-      - KAFKA_SECURITY_PROTOCOL=SASL_SSL
+#      - KAFKA_SECURITY_PROTOCOL=SASL_SSL
 #      - SECRET_KAFKA_USERNAME='wMNvfG4AgllefaD8'
 #      - SECRET_KAFKA_PASSWORD='4mMUQBhpZQ69xst1DElzwvB37ouHfNg6'
 #      - KAFKA_BROKER_HOST_1=kafka01-prod01.messagehub.services.eu-de.bluemix.net

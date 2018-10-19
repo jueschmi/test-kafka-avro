@@ -24,7 +24,7 @@ import com.sdase.avro.schema.document.DocumentODSCreate;
 import com.sdase.avro.schema.document.DocumentODSDelete;
 import com.sdase.avro.schema.document.DocumentODSEvent;
 import com.sdase.avro.schema.document.DocumentODSEventType;
-import com.sdase.avro.schema.document.InOutBoundType;
+import com.sdase.avro.schema.document.InOutboundType;
 import com.sdase.avro.schema.document.PartnerRoleType;
 import com.sdase.avro.schema.document.RelevantPartner;
 import com.sdase.avro.schema.document.SoRKey;
@@ -95,7 +95,7 @@ public class TestKafkaConsumerEndpoint implements TestKafkaConsumerService {
 									.setTitle("Test Document Title").setCategory("Haftpflicht")
 									.setType("Schadenmeldung").setDate(sZDT)
 									.setClassificationType("classfication type???")
-									.setClassificationIds(classificationIds).setInOutBound(InOutBoundType.INBOUND)
+									.setClassificationIds(classificationIds).setInOutbound(InOutboundType.INBOUND)
 									.setRelevantPartners(relevantPartners).setBusinessTransactionId("123").build())
 							.build();
 

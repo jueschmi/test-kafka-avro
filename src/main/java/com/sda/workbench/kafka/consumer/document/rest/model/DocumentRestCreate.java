@@ -30,7 +30,7 @@ public class DocumentRestCreate extends DocumentRest {
 	private ZonedDateTime dateIn;
 
 	@ApiModelProperty(value = "Attribute defining the direction, either the document is inbound, outbound or undefined", example = "INBOUD")
-	private InOutBoundType inOutBound;
+	private InOutboundType inOutBound;
 
 	@ApiModelProperty(value = "The Sender according to document", example = "First name Last name or company, if necessary city")
 	private String originalSender;
@@ -96,11 +96,11 @@ public class DocumentRestCreate extends DocumentRest {
 		this.dateIn = dateIn;
 	}
 
-	public InOutBoundType getInOutBound() {
+	public InOutboundType getInOutBound() {
 		return inOutBound;
 	}
 
-	public void setInOutBound(InOutBoundType inOutBound) {
+	public void setInOutBound(InOutboundType inOutBound) {
 		this.inOutBound = inOutBound;
 	}
 

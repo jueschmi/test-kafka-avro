@@ -107,8 +107,8 @@
               "doc": "A list of one or more unique classification Ids this document belongs to"
             },
             {
-              "name": "inOutBound",
-              "type": "InOutBoundType",
+              "name": "inOutbound",
+              "type": "InOutboundType",
               "doc": "Flag to identify where the document is visible, 0: undefined, 1: input folder, 2: output folder"
             },
             {
