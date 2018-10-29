@@ -39,12 +39,8 @@ public class DocumentRestCreate extends DocumentRest {
 	private String originalReceiver;
 
 	@NotEmpty
-	@ApiModelProperty(value = "The classification type of the document.", example = "...", required = true)
-	private String classificationType;
-
-	@NotEmpty
-	@ApiModelProperty(value = "A list of classification ids.", example = "...", required = true)
-	private List<String> classificationIds;
+	@ApiModelProperty(value = "A list of classifications.", example = "...", required = true)
+	private List<ClassificationResource> classifications;
 
 	@ApiModelProperty(value = "The protection class of the document.", example = "...")
 	private int protectionClass;
@@ -120,20 +116,13 @@ public class DocumentRestCreate extends DocumentRest {
 		this.originalReceiver = originalReceiver;
 	}
 
-	public String getClassificationType() {
-		return classificationType;
+	public List<ClassificationResource> getClassifications() {
+		return classifications;
 	}
 
-	public void setClassificationType(String classificationType) {
-		this.classificationType = classificationType;
-	}
-
-	public List<String> getClassificationIds() {
-		return classificationIds;
-	}
-
-	public void setClassificationIds(List<String> classificationIds) {
-		this.classificationIds = classificationIds;
+	public void setClassifications(
+			List<ClassificationResource> classifications) {
+		this.classifications = classifications;
 	}
 
 	public int getProtectionClass() {

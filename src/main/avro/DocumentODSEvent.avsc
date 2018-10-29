@@ -85,17 +85,12 @@
               "doc": "The receiver corresponding to the document, eg. firstname + lastname, name of VU"
             },
             {
-              "name": "classificationType",
-              "type": "string",
-              "doc": "..."
-            },
-            {
-              "name": "classificationIds",
+              "name": "classifications",
               "type": {
                 "type": "array",
-                "items": "string"
+                "items": "Classification"
               },
-              "doc": "A list of one or more unique classification Ids this document belongs to"
+              "doc": "Defining argument and type of the business object the document belongs to, it can be more than one"
             },
             {
               "name": "protectionClass",

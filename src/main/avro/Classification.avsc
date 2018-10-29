@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2018. SDA SE Open Industry Solutions (https://www.sda-se.com).
+ *
+ * All rights reserved.
+ */
+{
+  "namespace": "com.sdase.avro.schema.document",
+  "type": "record",
+  "name": "Classification",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Defining argument of the business object the document belongs to, eg. contract number, injury number or customer id in case of marketing letters"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "Type of the business object the document belogs to, eg. contract, injury, partner"
+    }
+  ]
+}

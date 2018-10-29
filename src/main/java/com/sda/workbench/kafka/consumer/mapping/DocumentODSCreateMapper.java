@@ -1,5 +1,6 @@
 package com.sda.workbench.kafka.consumer.mapping;
 
+import com.sda.workbench.kafka.consumer.document.rest.model.ClassificationResource;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,10 +27,9 @@ public class DocumentODSCreateMapper extends CustomMapper<DocumentODSCreate, Doc
 		b.setOriginalSender(a.getOriginalSender());
 		b.setOriginalReceiver(a.getOriginalReceiver());
 		b.setInOutBound(InOutboundType.INBOUND);
-		b.setClassificationType(a.getClassificationType());
-		b.setClassificationIds(a.getClassificationIds());
 		b.setProtectionClass(a.getProtectionClass() != null ? a.getProtectionClass().intValue() : 1);
 
+		b.setClassifications(mapperFacade.mapAsList(a.getClassifications(), ClassificationResource.class));
 		b.setExternalId(mapperFacade.map(a.getExternalId(), com.sda.workbench.kafka.consumer.document.rest.model.SoRKey.class));
 
 		List<com.sda.workbench.kafka.consumer.document.rest.model.RelevantPartner> relevantPartners = a

@@ -1,5 +1,6 @@
 package com.sda.workbench.kafka.consumer.document.rest;
 
+import com.sdase.avro.schema.document.Classification;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -90,13 +91,23 @@ public class TestKafkaConsumerEndpoint implements TestKafkaConsumerService {
 							.build();
 					relevantPartners.add(partner);
 
+					final List<Classification> classifications = new ArrayList<>();
+					final Classification classification = Classification.newBuilder()
+							.setId("Vertrag")
+							.setType("12345678")
+							.build();
+					classifications.add(classification);
+
 					event = DocumentODSEvent.newBuilder().setType(DocumentODSEventType.DOCUMENT_CREATE)
 							.setPayload(DocumentODSCreate.newBuilder().setId(uuid).setExternalId(sorKey)
-									.setTitle("Test Document Title").setCategory("Haftpflicht")
-									.setType("Schadenmeldung").setDate(sZDT)
-									.setClassificationType("classfication type???")
-									.setClassificationIds(classificationIds).setInOutbound(InOutboundType.INBOUND)
-									.setRelevantPartners(relevantPartners).setBusinessTransactionId("123").build())
+									.setTitle("Test Document Title")
+									.setCategory("Haftpflicht")
+									.setType("Schadenmeldung")
+									.setDate(sZDT)
+									.setClassifications(classifications)
+									.setInOutbound(InOutboundType.INBOUND)
+									.setRelevantPartners(relevantPartners)
+									.setBusinessTransactionId("123").build())
 							.build();
 
 					break;
